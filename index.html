@@ -1,24 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <style>
+        body {
+            font-family: monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid #333;
+            font-weight: bold;
+        }
+        
+        .tab:hover {
+            background-color: #eee;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 10px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        a {
+            color: #333;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
+        .project, .book, .repo, .post {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
 </head>
-
-<body class="bg-gray-100">
-    <div class="container mx-auto">
-        <h1 class="text-3xl font-bold mt-8 text-blue-600">Portfolio</h1>
-        <ul class="mt-4">
-            <li><a href="https://github.com/Chapman-John/PERN-Stack"
-                    class="text-blue-600 hover:underline">PERN-Stack</a></li>
-            <li><a href="https://github.com/Chapman-John/HTMX-GO" class="text-blue-600 hover:underline">HTMX-GO</a></li>
-            <li><a href="https://github.com/Chapman-John/ASP.NET-Core"
-                    class="text-blue-600 hover:underline">ASP.NET-Core</a></li>
-        </ul>
+<body>
+    <header>
+        <h1>Johnathan Chapman</h1>
+    </header>
+    
+    <div class="tabs">
+<!--         <button class="tab active" onclick="openTab(event, 'portfolio')">Portfolio</button> -->
+        <button class="tab" onclick="openTab(event, 'goodreads')">Goodreads</button>
+        <button class="tab active" onclick="openTab(event, 'github')">GitHub</button>
+<!--         <button class="tab" onclick="openTab(event, 'blog')">Blog</button> -->
     </div>
+    
+<!--     <div id="portfolio" class="tab-content active">
+        <h2>Portfolio</h2>
+        <p>Here are some of my recent projects:</p>
+        
+        <div class="project">
+            <h3>Multi-Agent Project</h3>
+            <p>A personal deep researcher that cross checks llm output.</p>
+            <p><a href="#">View Project →</a></p>
+        </div>
+        
+        <div class="project">
+            <h3>Weather App</h3>
+            <p>A simple weather application that uses the OpenWeatherMap API.</p>
+            <p><a href="#">View Project →</a></p>
+        </div>
+        
+        <div class="project">
+            <h3>Task Manager</h3>
+            <p>A productivity application built with Vue.js and Firebase.</p>
+            <p><a href="#">View Project →</a></p>
+        </div>
+    </div> -->
+    
+    <div id="goodreads" class="tab-content">
+        <h2>Books worth reading</h2>
+        <p>Books I've recently read and enjoyed:</p>
+        
+        <div class="book">
+            <h3>The Beginning of Infinity</h3>
+            <p>By David Deutsch</p>
+            <p>He brilliantly describes how explanatory knowledge has been the best way we make progress. All knowledge is
+            conjectural and needs to be open to criticism. Problems are inevitable, yet all problems are soluble.</p>
+        </div>
+        
+        <div class="book">
+            <h3>Straw Dogs</h3>
+            <p>By John Gray</p>
+            <p>Read the first five pages and it will send any westerner's worldview for a spin. He </p>
+        </div>
+        
+        <div class="book">
+            <h3>Guns, Germs, and Steel</h3>
+            <p>By Jared Diamond</p>
+            <p>If you want to understand what geographical advantages help lend itself to allow the west to become prime movers
+            over the last five hundred years, this book presents a hard to disprove explaination of history.</p>
+        </div>
+        
+        <p><a href="https://www.goodreads.com/user/show/155912143-johnathan-chapman">View my full Goodreads profile →</a></p>
+    </div>
+    
+    <div id="github" class="tab-content">
+        <h2>GitHub Projects</h2>
+        <p>Here are some of my recent projects:</p>
+        
+        <div class="repo">
+            <h3>Multi-Agent Project</h3>
+            <p>A personal deep researcher that cross checks llm output.</p>
+            <p>Languages: Python</p>
+            <p><a href="https://github.com/Chapman-John/Multi-Agent-System">View Repository →</a></p>
+        </div>
+        
+        <div class="repo">
+            <h3>E-commerce-Customer-Behavior-Analysis</h3>
+            <p>This Python-based data analytics project demonstrates advanced SQL and Python skills for data analysis by examining customer behavior in an e-commerce platform.</p>
+            <p>Languages: Python, SQL</p>
+            <p><a href="https://github.com/Chapman-John/E-commerce-Customer-Behavior-Analysis">View Repository →</a></p>
+        </div>
+        
+        <div class="repo">
+            <h3>Java Online Banking</h3>
+            <p>A demonstration of Java use for an online banking application.</p>
+            <p>Languages: Java, Typescript, React</p>
+            <p><a href="https://github.com/Chapman-John/Java-Online-Banking-App">View Repository →</a></p>
+        </div>
+        
+        <p><a href="https://github.com/Chapman-John">Visit my GitHub profile →</a></p>
+    </div>
+    
+<!--     <div id="blog" class="tab-content">
+        <h2>Blog Posts</h2>
+        
+        <div class="post">
+            <h3>Getting Started with React Hooks</h3>
+            <p>April 10, 2025</p>
+            <p>An introduction to React Hooks and how they can simplify your components.</p>
+            <p><a href="#">Read more →</a></p>
+        </div>
+        
+        <div class="post">
+            <h3>The Benefits of Test-Driven Development</h3>
+            <p>March 22, 2025</p>
+            <p>Why TDD can improve your code quality and development process.</p>
+            <p><a href="#">Read more →</a></p>
+        </div>
+        
+        <div class="post">
+            <h3>Building a RESTful API with Node.js</h3>
+            <p>February 15, 2025</p>
+            <p>A step-by-step guide to creating a RESTful API using Node.js and Express.</p>
+            <p><a href="#">Read more →</a></p>
+        </div>
+        
+        <div class="post">
+            <h3>CSS Grid vs. Flexbox: When to Use Each</h3>
+            <p>January 30, 2025</p>
+            <p>Comparing two powerful CSS layout systems and their ideal use cases.</p>
+            <p><a href="#">Read more →</a></p>
+        </div> -->
+    </div>
+    
+    <footer>
+        <p>© 2025 Johnathan Chapman | <a href="mailto:jane@example.com">Contact Me</a></p>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].className = tabContents[i].className.replace(" active", "");
+            }
+            
+            // Remove active class from all tabs
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active", "");
+            }
+            
+            // Show the selected tab content and add active class to the button
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
-
 </html>
