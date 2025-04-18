@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
     <style>
+        /* Original styling (commented but preserved) */
+        /*
         body {
             font-family: monospace;
             line-height: 1.6;
@@ -84,11 +86,231 @@
             border-top: 1px solid #ccc;
             padding-top: 10px;
         }
+        */
+        
+        /* New Bladerunner styling */
+        body {
+            font-family: monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #0a0a0f;
+            color: #b9c2d2;
+        }
+        
+        header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #30405a;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #ff4d90;
+            text-shadow: 0 0 10px rgba(255, 77, 144, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            color: #3edbf0;
+            text-shadow: 0 0 5px rgba(62, 219, 240, 0.5);
+        }
+        
+        h3 {
+            color: #c6daff;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #30405a;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            color: #8197a9;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s;
+        }
+        
+        .tab:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ff4d90;
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .tab:hover {
+            color: #ff4d90;
+        }
+        
+        .tab:hover:before {
+            transform: translateX(0);
+        }
+        
+        .tab.active {
+            color: #ff4d90;
+        }
+        
+        .tab.active:before {
+            transform: translateX(0);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 10px 0;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        a {
+            color: #3edbf0;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            color: #ff4d90;
+            text-shadow: 0 0 5px rgba(255, 77, 144, 0.5);
+        }
+        
+        a:after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: right;
+        }
+        
+        a:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .project, .book, .repo, .post {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dotted #30405a;
+            position: relative;
+        }
+        
+        .project:before, .book:before, .repo:before, .post:before {
+            content: ">>";
+            color: #ff4d90;
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project:hover:before, .book:hover:before, .repo:hover:before, .post:hover:before {
+            opacity: 1;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #4a5f77;
+            border-top: 1px solid #30405a;
+            padding-top: 10px;
+        }
+        
+        .subtitle {
+            color: #8197a9;
+            font-style: italic;
+        }
+        
+        .date {
+            color: #566c85;
+            font-style: italic;
+        }
+        
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(62, 219, 240, 0.2);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.05) 0px,
+                rgba(0, 0, 0, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 998;
+            opacity: 0.3;
+        }
+        
+        #cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: #ff4d90;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 0; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
+    <div class="scanline"></div>
+    <div class="crt-overlay"></div>
+    
     <header>
-        <h1>Johnathan Chapman</h1>
+        <h1>Johnathan Chapman_<span id="cursor"></span></h1>
     </header>
     
     <div class="tabs">
@@ -135,7 +357,7 @@
         <div class="book">
             <h3>Straw Dogs</h3>
             <p>By John Gray</p>
-            <p>Read the first five pages, and it will send most Westerner’s worldview for a spin. In the book, he reminds us not to forget human behavior when it comes to progress, especially progress outside of science.</p>
+            <p>Read the first five pages, and it will send most Westerner's worldview for a spin. In the book, he reminds us not to forget human behavior when it comes to progress, especially progress outside of science.</p>
         </div>
         
         <div class="book">
@@ -147,7 +369,7 @@
         <p><a href="https://www.goodreads.com/user/show/155912143-johnathan-chapman">View my full Goodreads profile →</a></p>
     </div>
     
-    <div id="github" class="tab-content">
+    <div id="github" class="tab-content active">
         <h2>GitHub Projects</h2>
         <p>Here are some of my recent projects:</p>
         
@@ -228,6 +450,13 @@
             // Show the selected tab content and add active class to the button
             document.getElementById(tabName).className += " active";
             evt.currentTarget.className += " active";
+            
+            // Add a glitch effect on tab change
+            var header = document.querySelector("h1");
+            header.style.textShadow = "2px 0 0 rgba(255,0,0,0.5), -2px 0 0 rgba(0,255,255,0.5)";
+            setTimeout(function() {
+                header.style.textShadow = "0 0 10px rgba(255, 77, 144, 0.7)";
+            }, 100);
         }
     </script>
 </body>
